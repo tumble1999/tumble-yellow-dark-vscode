@@ -1,48 +1,56 @@
-const fs = require("fs").promises;
-const getTheme = require("./theme");
-const getClassicTheme = require("./classic/theme");
+const fs = require("fs").promises,
+  getTheme = require("./theme"),
+  getClassicTheme = require("./classic/theme"),
+  getTumbleTheme = require("./tumbleTheme"),
 
-const lightDefaultTheme = getTheme({
-  theme: "light",
-  name: "GitHub Light Default",
-});
+  /*lightDefaultTheme = getTheme({
+    theme: "light",
+    name: "GitHub Light Default",
+  }),
 
-const darkDefaultTheme = getTheme({
-  theme: "dark",
-  name: "GitHub Dark Default",
-});
+  darkDefaultTheme = getTheme({
+    theme: "dark",
+    name: "GitHub Dark Default",
+  }),
 
-const darkDimmedTheme = getTheme({
-  theme: "dimmed",
-  name: "GitHub Dark Dimmed"
-})
+  darkDimmedTheme = getTheme({
+    theme: "dimmed",
+    name: "GitHub Dark Dimmed"
+  }),
 
-const darkHighContrastTheme = getTheme({
-  theme: "hc",
-  name: "GitHub Dark High Contrast"
-})
+  darkHighContrastTheme = getTheme({
+    theme: "hc",
+    name: "GitHub Dark High Contrast"
+  }),
 
-// Classic
+  // Classic
 
-const lightTheme = getClassicTheme({
-  style: "light",
-  name: "GitHub Light",
-});
+  lightTheme = getClassicTheme({
+    style: "light",
+    name: "GitHub Light",
+  }),
 
-const darkTheme = getClassicTheme({
-  style: "dark",
-  name: "GitHub Dark",
-});
+  darkTheme = getClassicTheme({
+    style: "dark",
+    name: "GitHub Dark",
+  }),*/
+
+  //Custom
+  darkTumbleTheme = getTumbleTheme({
+    theme: "dark",
+    name: "Tumble Yellow Dark",
+  });
 
 // Write themes
 
 fs.mkdir("./themes", { recursive: true })
   .then(() => Promise.all([
-    fs.writeFile("./themes/light-default.json", JSON.stringify(lightDefaultTheme, null, 2)),
+    /*fs.writeFile("./themes/light-default.json", JSON.stringify(lightDefaultTheme, null, 2)),
     fs.writeFile("./themes/dark-default.json", JSON.stringify(darkDefaultTheme, null, 2)),
     fs.writeFile("./themes/dark-dimmed.json", JSON.stringify(darkDimmedTheme, null, 2)),
     fs.writeFile("./themes/dark-high-contrast.json", JSON.stringify(darkHighContrastTheme, null, 2)),
     fs.writeFile("./themes/light.json", JSON.stringify(lightTheme, null, 2)),
-    fs.writeFile("./themes/dark.json", JSON.stringify(darkTheme, null, 2)),
+    fs.writeFile("./themes/dark.json", JSON.stringify(darkTheme, null, 2)),*/
+    fs.writeFile("./themes/tumble-yellow-dark.json", JSON.stringify(darkTumbleTheme, null, 2)),
   ]))
-  .catch(() => process.exit(1))
+  .catch(() => process.exit(1));
