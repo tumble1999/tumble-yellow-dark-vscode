@@ -27,11 +27,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run:
-          - npm i -g yarn vsce
-          - yarn install
-          - yarn build --if-present
-          - yarn vsce package --yarn -o ${{ env.artifact-name }}
+    - run: |
+        npm i -g yarn vsce
+        yarn install
+        yarn build --if-present
+        yarn vsce package --yarn -o ${{ env.artifact-name }}
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
         with:
