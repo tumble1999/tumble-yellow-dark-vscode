@@ -30,7 +30,7 @@ jobs:
       - name: Build and package theme
         run: |
           yarn build --if-present
-          yarn vsce package --yarn -o ${{ env.artifact-name }}
+          vsce package --yarn -o ${{ env.artifact-name }}
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
         with:
