@@ -39,7 +39,7 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           path: ${{ env.artifact-name }}
       - uses: nyaa8/package-version@v1
-      - name: GitHub Release Action
+      - name: Release ${{ env.PACKAGE_VERSION }}
         uses: 1fxe/GitHub-Release-Action@main
         with:
           release_token: ${{ github.token }}
