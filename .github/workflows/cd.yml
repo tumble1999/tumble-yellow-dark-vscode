@@ -14,18 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       artifact-name: tumble-yellow-dark.vsix
-
-    strategy:
-      matrix:
         node-version: [17.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.node-version }}
           cache: "npm"
       - name: Install Dependencies
         run: |
