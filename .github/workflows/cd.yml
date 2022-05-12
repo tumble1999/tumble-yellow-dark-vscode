@@ -38,5 +38,7 @@ jobs:
           name: extension
           # A file, directory or wildcard pattern that describes what to upload
           path: ${{ env.artifact-name }}
+      - name: Tag from package version
+        uses: suceda/tag-from-version@v0.1.0
       - name: GitHub Releases
         uses: fnkr/github-action-ghr@v1.3
