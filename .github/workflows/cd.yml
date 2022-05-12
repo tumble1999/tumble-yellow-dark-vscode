@@ -42,7 +42,7 @@ jobs:
       - name: GitHub Release Action
         uses: 1fxe/GitHub-Release-Action@main
         with:
-          release_token: ${{ secrets.GITHUB_TOKEN }}
+          release_token: ${{ github.token }}
           release_tag: ${{ env.PACKAGE_VERSION }}
           release_title: Tumble Yellow Dark VSCode ${{ env.PACKAGE_VERSION }}
           release_file: ${{ env.artifact-name }}
