@@ -38,13 +38,14 @@ jobs:
           name: extension
           # A file, directory or wildcard pattern that describes what to upload
           path: ${{ env.artifact-name }}
-      - name: Read package.json
-        uses: dutscher/read-package-json-endpoint-actions@v1.33.7
-        id: package-json-endpoint
+      - uses: nyaa8/package-version@v1
+        with:
+          path: "uwu/package.json" # Optional
+          follow-symlinks: "false" # Optional
       - name: GitHub Release Action
         uses: 1fxe/GitHub-Release-Action@main
         with:
           release_token: ${{ secrets.RELEASE_TOKEN }}
-          release_tag: ${{ steps.package-json-endpoint.outputs.endpoint }}
-          release_title: Tumble Yellow Dark VSCode ${{ steps.package-json-endpoint.outputs.endpoint }}
+          release_tag: ${{ env.PACKAGE_VERSION }}
+          release_title: Tumble Yellow Dark VSCode ${{ env.PACKAGE_VERSION }}
           release_file: ${{ env.artifact-name }}
