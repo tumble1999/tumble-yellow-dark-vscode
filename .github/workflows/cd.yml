@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
       artifact-name: tumble-yellow-dark.vsix
     steps:
       - uses: actions/checkout@v3
