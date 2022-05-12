@@ -12,13 +12,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
       artifact-name: tumble-yellow-dark.vsix
-        node-version: [17.x]
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v3
+        env:
+          node-version: 17.x
         with:
           node-version: ${{ env.node-version }}
           cache: "npm"
